@@ -8,14 +8,15 @@ class ForgotPasswordController {
     }
 
     $onInit(){
-        this.email = '';
+        this.student_id = '';
     }
 
     submit() {
+        this.email = this.student_id + '@hust.edu.cn';
         this.API.all('auth/password/email').post({
             email: this.email
         }).then(() => {
-            this.ToastService.show(`Please check your email for instructions on how to reset your password.`);
+            this.ToastService.show(`请检查你的学号对应邮箱，重置密码的邮件已经发送`);
             this.$state.go('app.landing');
         });
     }

@@ -7,11 +7,13 @@ class LoginFormController {
 	}
 
     $onInit(){
+        this.student_id = '';
         this.email = '';
         this.password = '';
     }
 
 	login() {
+		this.email = this.student_id + '@hust.edu.cn';
 		let user = {
 			email: this.email,
 			password: this.password
@@ -21,7 +23,7 @@ class LoginFormController {
 			.then((response) => {
 				this.$auth.setToken(response.data);
 
-				this.ToastService.show('Logged in successfully.');
+				this.ToastService.show('登录成功');
 			})
 			.catch(this.failedLogin.bind(this));
 	}

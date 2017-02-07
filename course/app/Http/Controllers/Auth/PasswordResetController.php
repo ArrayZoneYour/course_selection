@@ -29,7 +29,7 @@ class PasswordResetController extends Controller
 
         Mail::send('auth.reset_link', compact('email', 'token'), function ($mail) use ($email) {
             $mail->to($email)
-            ->from('noreply@example.com')
+            ->from('arrayzoneyour@hustliyidong.cn')
             ->subject('Password reset link');
         });
 
